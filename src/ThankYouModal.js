@@ -53,7 +53,7 @@ export default function ThankYouModal(props) {
         }}
       >
         <Typography id="modal-modal-title" variant="h6" component="h2">
-          תזכו למצוות!
+          ...הנה זה בא
         </Typography>
         <Typography id="server-modal-description" sx={{ pt: 2 }}>
           הדרך להגשים את החלום שלך מתחילה ממש כאן
