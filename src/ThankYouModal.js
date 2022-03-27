@@ -56,7 +56,7 @@ export default function ThankYouModal(props) {
           תזכו למצוות!
         </Typography>
         <Typography id="server-modal-description" sx={{ pt: 2 }}>
-          יישר כוח על השתתפותכם בהחזקת מפעל הבית של סמינר וולף
+          הדרך להגשים את החלום שלך מתחילה ממש כאן
         </Typography>
         <Typography>
           על מנת לשמור את נתוניך לצורך עריכת ההגרלות, נא הזן את הפרטים הבאים
