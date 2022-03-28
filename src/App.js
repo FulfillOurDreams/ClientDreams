@@ -9,7 +9,7 @@ const fetchArr = async () => {
   let data;
   await fetch('http://localhost:4500/item')
   .then(response =>  response.json())
-  .then(dat =>  data = dat);
+  .then(dt =>  data = dt);
   return data;
 
 }
