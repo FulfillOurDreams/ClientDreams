@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PrizesSum from "./PrizesSum";
+import BasicButtons from "./NavigateButton";
 
 export default function AppBarPage({ numOfSelectedPrizes, children }) {
   return (
@@ -18,6 +19,7 @@ export default function AppBarPage({ numOfSelectedPrizes, children }) {
             ברוכים הבאים למכירה הסינית
             <p style={{ margin: "0px" }}>מגשימים לכם חלומות</p>
           </Typography>
+          <BasicButtons></BasicButtons>
         </Toolbar>
       </AppBar>
     </Box>
