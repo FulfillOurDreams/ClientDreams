@@ -4,9 +4,14 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { TextField } from "@mui/material";
 
+const addNewUser = async (user) => {
+  await fetch('http://localhost:4500/user', { method: 'POST', body: JSON.stringify(user), headers: { 'Content-Type': 'application/json' } }).then(response => { console.log(response) }).catch(error => { console.log(error) })
+}
+
 export default function ThankYouModal(props) {
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
+  const [phone, setPhone] = React.useState("");
   const updateFirstName = (event) => {
     setFirstName(event.target.value);
   };
@@ -14,19 +19,21 @@ export default function ThankYouModal(props) {
     setLastName(event.target.value);
   };
   const onCloseModal = () => {
-    localStorage.setItem(
-      "users",
-      JSON.stringify([
-        ...JSON.parse(localStorage.getItem("users") || "[]"),
-        {
-          firstName: firstName,
-          lastName: lastName,
-          prizesList: props.prizesArray
-            .filter(({ isSelected }) => isSelected)
-            .map(({ name }) => name),
-        },
-      ])
-    );
+    // localStorage.setItem(
+    //   "users",
+    //   JSON.stringify([
+    //     ...JSON.parse(localStorage.getItem("users") || "[]"),
+    //     {
+    //       firstName: firstName,
+    //       lastName: lastName,
+    //       prizesList: props.prizesArray
+    //         .filter(({ isSelected }) => isSelected)
+    //         .map(({ name }) => name),
+    //     },
+    //   ])
+    // );
+    let newUser = { user_first_name: firstName, user_last_name: lastName, user_phone: phone, arr_orders: [] }
+    addNewUser(newUser)
     props.setShouldShowThankYouModal(false);
   };
 
@@ -63,6 +70,7 @@ export default function ThankYouModal(props) {
         </Typography>
         <TextField label="שם פרטי" onChange={updateFirstName} />
         <TextField label="שם משפחה" onChange={updateLastName} />
+        <TextField label="מספר טלפון" onChange={(e) => { setPhone(e.target.value) }} />
       </Box>
     </Modal>
   );
