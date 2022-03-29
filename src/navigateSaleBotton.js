@@ -8,7 +8,7 @@ export default function SaleButtons() {
     return (
         <Stack spacing={2} direction="row">
             {/* complete  the path */}
-            <Button variant="contained" color="info" onClick={() => navigate("/PrizesPage")}>למכירה הסינית</Button>
+            <Button variant="contained" color="info" onClick={() => navigate("/PrizesPage")}>למכירה</Button>
         </Stack>
     );
 }
