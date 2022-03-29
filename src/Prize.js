@@ -5,11 +5,22 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Checkbox } from "@mui/material";
 
+const fetchAddorder = async (item) =>{
+  await fetch('http://localhost:4500/user', { method: "POST", body: JSON.stringify(item),headers:{'Content-Type':'application/json'} }).catch(err=>{console.log("fail fetchAddorder")})
+  return 0;
+}
 export default function Prize(props) {
-  const onSelectedPrizeChange = (e) => {
+  const onSelectedPrizeChange = async(e) => {
     let isChecked = e.target.checked;
     props.changeSelectedPrize(props.Id);
-    if (isChecked) props.setNumOfSelectedPrizes(props.numOfSelectedPrizes + 1);
+    if (isChecked){ 
+      console.log("before")
+      await fetchAddorder({item_name:props.name,price:props.price})
+      console.log("after")
+    }
+      if(props.numOfSelectedPrizes===0){
+      props.setNumOfSelectedPrizes(props.numOfSelectedPrizes + 1);
+    }
     else props.setNumOfSelectedPrizes(props.numOfSelectedPrizes - 1);
   };
 

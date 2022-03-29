@@ -9,14 +9,24 @@ import {
   Card,
 } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+const fetchGetArrOrder = async (id) =>{
+  let arr;
+  await fetch('http://localhost:4500/user/'+id, { method: "GET",headers:{'Content-Type':'application/json'} })
+  .then(res=>arr=res)
+  .catch(err=>{console.log("fail fetchAddorder")})
+  return arr;
+}
 export default function PricesTable(props) {
-  const [prizes, setPrizes] = useState(
-    props.prizes.filter((p) => {
-      return p.isSelected === true;
-    })
+  const [prizes, setPrizes] = useState(null
   );
+  useEffect(async()=>{
+    let arrOrder=await  fetchGetArrOrder(localStorage.getItem("id"))
+    setPrizes(arrOrder)
+  })
+ 
+  
   const sort = () => {
     const all = [...prizes];
     setPrizes(all.sort((s1, s2) => s1.name.localeCompare(s2.name)));
