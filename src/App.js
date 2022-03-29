@@ -1,11 +1,13 @@
 import React, { useEffect,useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import { addItems } from "./addArrToDataBase";
 import "./App.css";
 import PaymentPage from "./PaymentPage";
 import PrizesPage from "./PrizesPage";
 import RafflesPage from "./RafflesPage";
 
 const fetchArr = async () => {
+  await addItems();
   let data;
   await fetch('http://localhost:4500/item')
   .then(response =>  response.json())
