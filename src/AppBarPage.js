@@ -5,6 +5,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PrizesSum from "./PrizesSum";
 import BasicButtons from "./NavigateButton";
+import SaleButtons from "./navigateSaleBotton";
+
 
 export default function AppBarPage({ numOfSelectedPrizes, children }) {
   return (
@@ -20,6 +22,7 @@ export default function AppBarPage({ numOfSelectedPrizes, children }) {
             <p style={{ margin: "0px" }}>מגשימים לכם חלומות</p>
           </Typography>
           <BasicButtons></BasicButtons>
+          <SaleButtons></SaleButtons>
         </Toolbar>
       </AppBar>
     </Box>
