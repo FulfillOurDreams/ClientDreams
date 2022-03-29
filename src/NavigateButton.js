@@ -8,7 +8,7 @@ export default function BasicButtons() {
     return (
         <Stack spacing={2} direction="row">
             {/* complete  the path */}
-            <Button variant="contained" color="info" onClick={() => navigate("/your-path-here")}>Add Item</Button>
+            <Button variant="contained" color="info" onClick={() => navigate("path-here")}>Add Item</Button>
         </Stack>
     );
 }
