@@ -5,7 +5,6 @@ import RafflesTable from "./RafflesTable";
 import Winner from "./Winner";
 
 const fetchUsers=async(id)=>{
-  //app.get('/winning/getUserSubscribe/:id',winningConroller.alluserbyproductcode)
   let users;
   await fetch(`http://localhost:4500/winning/getUserSubscribe/${id}`)
   .then(data=>data.json())
@@ -21,9 +20,6 @@ export default function RafflesPage(props) {
     setCurrentRaffle(prizeName);
     let id=props.prizesArray.find(item=>item.name==prizeName)._id;
     const users = await fetchUsers(id);
-    // JSON.parse(localStorage.getItem("users")).filter((user) => {
-    //   return user?.prizesList?.some((prize) => prize === prizeName);
-//  });
     const rand = Math.floor(Math.random() * users.length);
     setWinner(users[rand]);
   };
